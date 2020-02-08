@@ -12,5 +12,10 @@ enum Strings {
     enum Calc: String {
         case expressionError = "calc.expression.error"
         case shouldContainOnlyCharacters = "should.contain.only.characters"
+        
+        enum Exceptions: String {
+            case expressionNotCorrect = "calc.expression.not.correct"
+            case couldNotDivideByZero = "calc.division.by.zero.not.allowed"
+        }
     }
 }

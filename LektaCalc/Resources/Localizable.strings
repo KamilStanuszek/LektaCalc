@@ -8,4 +8,6 @@
 
 // MARK: - Calc
 "calc.expression.error" = "Expression error";
-"should.contain.only.characters" = "Expression should contain only numeric characters and: (   )   +   -   *   /   .";
+"should.contain.only.characters" = "Expression should contain only numeric characters and: (   )   +   -   *   /   .   without spaces.";
+"calc.expression.not.correct" = "The expression is not correct";
+"calc.division.by.zero.not.allowed" = "Division by zero is not allowed";

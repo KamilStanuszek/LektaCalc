@@ -36,7 +36,11 @@ extension CalcViewController {
             .subscribe(onNext: { [unowned self] message in
                 self.createAlert(title: Strings.Calc.expressionError.localized, message: message)
             }).disposed(by: disposeBag)
-            
+        
+        viewModel.resultObs
+            .subscribe(onNext: { [unowned self] result in
+                self.resultLabel.text = result
+            }).disposed(by: disposeBag)
     }
     
     private func setupPresentationLogic() {
