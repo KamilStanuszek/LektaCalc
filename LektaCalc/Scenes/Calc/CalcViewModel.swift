@@ -14,6 +14,7 @@ protocol CalcViewModelLogic {
     var resultObs: Observable<String> { get }
     var alertMessageObs: Observable<String> { get }
     func executeButtonClicked(expressionText: String)
+    func expressionTextFieldEditingChanged(text: String?)
 }
 
 class CalcViewModel {
@@ -39,6 +40,13 @@ extension CalcViewModel: CalcViewModelLogic {
     
     func executeButtonClicked(expressionText: String) {
         checkCharacters(expressionText)
+    }
+    
+    func expressionTextFieldEditingChanged(text: String?) {
+        guard let strongText = text, !strongText.isEmpty else {
+            resultRelay.accept("")
+            return
+        }
     }
 }
 

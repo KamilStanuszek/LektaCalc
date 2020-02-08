@@ -20,6 +20,11 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var executeButton: UIButton!
     
+    // MARK: - Actions
+    @IBAction func expressionTextFieldEditingChanged(_ sender: UITextField) {
+        viewModel.expressionTextFieldEditingChanged(text: sender.text)
+    }
+    
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
