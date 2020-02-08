@@ -92,7 +92,10 @@ extension CalcViewModel {
                 values.popLast()!
             ))
         }
-        return values.last;
+        guard values.count == 1 else {
+            throw AppErrorException.runtimeException(message: Strings.Calc.Exceptions.expressionNotCorrect.localized)
+        }
+        return values.first;
     }
     
     private func calcSimpleExpression(operator: Character, _ firstValue: Int, _ secondValue: Int) throws -> Int {
