@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CalcViewController: UIViewController {
     //MARK: - Properties
     let viewModel: CalcViewModelLogic = CalcViewModel()
+    let disposeBag = DisposeBag()
     
     // MARK: - Views
     @IBOutlet weak var expressionTextField: UITextField!
@@ -20,6 +23,7 @@ class CalcViewController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        observeViewModel()
         setupPresentationLogic()
     }
 
@@ -27,6 +31,14 @@ class CalcViewController: UIViewController {
 
 // MARK: - Private methods
 extension CalcViewController {
+    private func observeViewModel() {
+        viewModel.alertMessageObs
+            .subscribe(onNext: { [unowned self] message in
+                self.createAlert(title: Strings.Calc.expressionError.localized, message: message)
+            }).disposed(by: disposeBag)
+            
+    }
+    
     private func setupPresentationLogic() {
         setupClosingKeyboardOnTapingAnywhere()
         setupViews()
@@ -40,6 +52,14 @@ extension CalcViewController {
     
     private func setupViews() {
         executeButton.addTarget(self, action: #selector(executeButtonClicked), for: .touchUpInside)
+    }
+    
+    private func createAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak alert] _ in
+            alert?.dismiss(animated: true, completion: nil)
+        })
+        present(alert, animated: true, completion: nil)
     }
     
     @objc func executeButtonClicked() {

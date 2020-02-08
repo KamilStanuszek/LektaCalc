@@ -14,6 +14,10 @@
 		7132BB2623EEAF4600B98DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7132BB2523EEAF4600B98DE2 /* Assets.xcassets */; };
 		7132BB2923EEAF4600B98DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7132BB2723EEAF4600B98DE2 /* LaunchScreen.storyboard */; };
 		7132BB3623EEC3E000B98DE2 /* CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7132BB3523EEC3E000B98DE2 /* CalcViewModel.swift */; };
+		7132BB3923EEDA3200B98DE2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7132BB3823EEDA3200B98DE2 /* StringExtension.swift */; };
+		7132BB3B23EEDCCF00B98DE2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7132BB3A23EEDCCF00B98DE2 /* Strings.swift */; };
+		7132BB3D23EEDD2900B98DE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7132BB3C23EEDD2900B98DE2 /* Localizable.strings */; };
+		7132BB3F23EEDE7B00B98DE2 /* RawRepresentableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7132BB3E23EEDE7B00B98DE2 /* RawRepresentableExtension.swift */; };
 		7E2F321F5F00ED9E1E89FFB1 /* Pods_LektaCalc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42C67BE23776A13B1BD1603 /* Pods_LektaCalc.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		7132BB2823EEAF4600B98DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7132BB2A23EEAF4600B98DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7132BB3523EEC3E000B98DE2 /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
+		7132BB3823EEDA3200B98DE2 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		7132BB3A23EEDCCF00B98DE2 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		7132BB3C23EEDD2900B98DE2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7132BB3E23EEDE7B00B98DE2 /* RawRepresentableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentableExtension.swift; sourceTree = "<group>"; };
 		7E9BA41763CAF0B446100B67 /* Pods-LektaCalc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LektaCalc.release.xcconfig"; path = "Target Support Files/Pods-LektaCalc/Pods-LektaCalc.release.xcconfig"; sourceTree = "<group>"; };
 		A3C86E9F1668E8E2608489A8 /* Pods-LektaCalc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LektaCalc.debug.xcconfig"; path = "Target Support Files/Pods-LektaCalc/Pods-LektaCalc.debug.xcconfig"; sourceTree = "<group>"; };
 		E42C67BE23776A13B1BD1603 /* Pods_LektaCalc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LektaCalc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +100,8 @@
 		7132BB3123EEB69900B98DE2 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				7132BB3723EEDA1E00B98DE2 /* Extensions */,
+				7132BB3A23EEDCCF00B98DE2 /* Strings.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -102,6 +112,7 @@
 				7132BB2A23EEAF4600B98DE2 /* Info.plist */,
 				7132BB2523EEAF4600B98DE2 /* Assets.xcassets */,
 				7132BB2723EEAF4600B98DE2 /* LaunchScreen.storyboard */,
+				7132BB3C23EEDD2900B98DE2 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -123,6 +134,15 @@
 				7132BB1E23EEAF4400B98DE2 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		7132BB3723EEDA1E00B98DE2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7132BB3E23EEDE7B00B98DE2 /* RawRepresentableExtension.swift */,
+				7132BB3823EEDA3200B98DE2 /* StringExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E1868BDCA247DBCED6770884 /* Pods */ = {
@@ -195,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7132BB2923EEAF4600B98DE2 /* LaunchScreen.storyboard in Resources */,
+				7132BB3D23EEDD2900B98DE2 /* Localizable.strings in Resources */,
 				7132BB2623EEAF4600B98DE2 /* Assets.xcassets in Resources */,
 				7132BB2423EEAF4400B98DE2 /* CalcViewController.storyboard in Resources */,
 			);
@@ -251,7 +272,10 @@
 			files = (
 				7132BB2123EEAF4400B98DE2 /* CalcViewController.swift in Sources */,
 				7132BB3623EEC3E000B98DE2 /* CalcViewModel.swift in Sources */,
+				7132BB3923EEDA3200B98DE2 /* StringExtension.swift in Sources */,
 				7132BB1D23EEAF4400B98DE2 /* AppDelegate.swift in Sources */,
+				7132BB3F23EEDE7B00B98DE2 /* RawRepresentableExtension.swift in Sources */,
+				7132BB3B23EEDCCF00B98DE2 /* Strings.swift in Sources */,
 				7132BB1F23EEAF4400B98DE2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

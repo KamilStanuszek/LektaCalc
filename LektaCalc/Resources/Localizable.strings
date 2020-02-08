@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  LektaCalc
+
+  Created by Kamil Stanuszek on 08/02/2020.
+  Copyright © 2020 Kamil Stanuszek. All rights reserved.
+*/
+
+// MARK: - Calc
+"calc.expression.error" = "Expression error";
+"should.contain.only.characters" = "Expression should contain only numeric characters and: (   )   +   -   *   /   .";
