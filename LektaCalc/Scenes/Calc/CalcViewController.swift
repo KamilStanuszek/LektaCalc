@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalcViewController.swift
 //  LektaCalc
 //
 //  Created by Kamil Stanuszek on 08/02/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalcViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
