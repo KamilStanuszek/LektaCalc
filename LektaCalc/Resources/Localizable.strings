@@ -11,3 +11,4 @@
 "should.contain.only.characters" = "Expression should contain only numeric characters and: (   )   +   -   *   /   .   without spaces.";
 "calc.expression.not.correct" = "The expression is not correct";
 "calc.division.by.zero.not.allowed" = "Division by zero is not allowed";
+"one.of.numbers.is.too.long" = "One of numbers from expression is too big";

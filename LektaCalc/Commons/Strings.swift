@@ -16,6 +16,7 @@ enum Strings {
         enum Exceptions: String {
             case expressionNotCorrect = "calc.expression.not.correct"
             case couldNotDivideByZero = "calc.division.by.zero.not.allowed"
+            case oneOfNumersIsTooLong = "one.of.numbers.is.too.long"
         }
     }
 }
