@@ -9,24 +9,28 @@
 import Foundation
 
 protocol CalculateExpressionService {
-    func calculate(expression: String) throws -> Int?
+    func calculate(expression: String) throws -> Float?
 }
 
 final class CalculateExpressionServiceImpl: CalculateExpressionService {
     // MARK: - Properies
-    var allCharacters: [Character] = []
-    var values: [Int] = []
-    var operators: [Character] = []
-    var index = 0
+    private var allCharacters: [Character] = []
+    private var values: [Float] = []
+    private var operators: [Character] = []
+    private var index = 0
+    private var itIsNegativeNumer: Bool {
+        return (allCharacters[index] == "-" && index > 0 && allCharacters[index - 1] == "(") ||
+        (allCharacters[index] == "-" && index == 0)
+    }
     
-    func calculate(expression: String) throws -> Int? {
+    func calculate(expression: String) throws -> Float? {
         allCharacters = Array(expression)
         index = 0
         values.removeAll()
         operators.removeAll()
         
         while index < allCharacters.count {
-            if allCharacters[index].isNumber {
+            if allCharacters[index].isNumberOrDot {
                 try doAlgorithmForNumber()
             } else if allCharacters[index] == "(" {
                 operators.append(allCharacters[index])
@@ -57,7 +61,7 @@ final class CalculateExpressionServiceImpl: CalculateExpressionService {
     
 // MARK: - Private methods
 extension CalculateExpressionServiceImpl {
-    private func calcSimpleExpression(operator: Character, _ firstValue: Int, _ secondValue: Int) throws -> Int {
+    private func calcSimpleExpression(operator: Character, _ firstValue: Float, _ secondValue: Float) throws -> Float {
         switch `operator` {
         case "+":
             return secondValue + firstValue
@@ -77,12 +81,12 @@ extension CalculateExpressionServiceImpl {
     
     private func doAlgorithmForNumber() throws {
         var valueString: [Character] = []
-        while index < allCharacters.count, allCharacters[index].isNumber {
+        while index < allCharacters.count, allCharacters[index].isNumberOrDot {
             valueString.append(allCharacters[index])
             index += 1
         }
         index -= 1
-        guard let number = Int(String(valueString)) else {
+        guard let number = Float(String(valueString)) else {
             throw AppErrorException.runtimeException(message: Strings.Calc.Exceptions.oneOfNumersIsTooLong.localized)
         }
         values.append(number)
@@ -103,6 +107,10 @@ extension CalculateExpressionServiceImpl {
     }
     
     private func doAlgorithmForOperator() throws {
+        if itIsNegativeNumer {
+            values.append(-1)
+            allCharacters[index] = "*"
+        }
         while !operators.isEmpty, operators.last!.isPrior(than: allCharacters[index]) {
             guard operators.last != nil, values.count >= 2 else {
                 throw AppErrorException.runtimeException(message: Strings.Calc.Exceptions.expressionNotCorrect.localized)
@@ -131,5 +139,9 @@ fileprivate extension Character {
     
     var isOperator: Bool {
         return self == "+" || self == "-" || self == "*" || self == "/"
+    }
+    
+    var isNumberOrDot: Bool {
+        return self.isNumber || self == "."
     }
 }
